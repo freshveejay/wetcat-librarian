@@ -96,7 +96,7 @@ VITE_WORLD_ID_APP_ID=app_staging_... # Your World ID app ID
 VITE_WORLD_ID_ACTION_ID=play_wetcat_game
 
 # Server Configuration (for backend)
-JWT_SECRET=your-secret-key
+JWT_SECRET=          # Generate a strong random secret
 GAME_SERVER_PRIVATE_KEY=0x...
 ```
 

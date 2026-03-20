@@ -9,10 +9,18 @@ const app = express();
 app.use(express.json());
 
 // Configuration
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  console.error('FATAL: JWT_SECRET environment variable is required');
+  process.exit(1);
+}
 const GAME_REWARDS_ADDRESS = process.env.GAME_REWARDS_ADDRESS;
 const PRIVATE_KEY = process.env.GAME_SERVER_PRIVATE_KEY;
-const RPC_URL = process.env.RPC_URL || 'https://mainnet.infura.io/v3/YOUR_KEY';
+const RPC_URL = process.env.RPC_URL;
+if (!RPC_URL) {
+  console.error('FATAL: RPC_URL environment variable is required');
+  process.exit(1);
+}
 
 // Contract ABI (minimal)
 const REWARDS_ABI = [
